@@ -61,7 +61,7 @@ def go(config: DictConfig) -> None:
             _ = mlflow.run(
                 uri=_component_uri(components_repo, "get_data"),
                 entry_point="main",
-                env_manager="local",
+                env_manager="conda",
                 parameters={
                     "sample": config["etl"]["sample"],
                     "artifact_name": config.get("download", {}).get("artifact_name", "sample.csv"),
@@ -110,9 +110,9 @@ def go(config: DictConfig) -> None:
             _ = mlflow.run(
                 uri=_component_uri(components_repo, "train_val_test_split"),
                 entry_point="main",
-                env_manager="local",
+                env_manager="conda",
                 parameters={
-                    "input_artifact": input_ref,
+                    "input": input_ref,
                     "test_size": config["modeling"]["test_size"],
                     "random_seed": config["modeling"]["random_seed"],
                     "stratify_by": config["modeling"]["stratify_by"],
@@ -121,25 +121,28 @@ def go(config: DictConfig) -> None:
 
         if "train_random_forest" in steps:
             print(">> Step: train_random_forest")
+            print("Using stratify_by =", config["modeling"]["stratify_by"])
             rf_config_path = Path(tmp_dir.name) / "rf_config.json"
             with open(rf_config_path, "w", encoding="utf-8") as fp:
                 json.dump(dict(config["modeling"]["random_forest"].items()), fp)
 
-            train_ref = _full_artifact_ref(project_name, "train.csv:latest", wandb_entity)
-            val_ref = _full_artifact_ref(project_name, "val.csv:latest", wandb_entity)
+            trainval_ref = _full_artifact_ref(project_name, "trainval_data.csv:latest", wandb_entity)
 
             _ = mlflow.run(
                 uri=train_rf_uri,
                 entry_point="main",
                 env_manager="local",
                 parameters={
-                    "train_data": train_ref,
-                    "val_data": val_ref,
+                    "trainval_artifact": trainval_ref,
+                    "val_size": config["modeling"]["val_size"],
+                    "random_seed": config["modeling"]["random_seed"],
+                    "stratify_by": config["modeling"]["stratify_by"],
                     "rf_config": str(rf_config_path),
                     "max_tfidf_features": config["modeling"]["max_tfidf_features"],
                     "output_artifact": "random_forest_export",
                 },
             )
+            
 
     finally:
         os.chdir(orig_cwd)
