@@ -3,7 +3,7 @@
 ## 🔗 Links for Review
 
 - **W&B Project:** [https://wandb.ai/zanehan-udacity/nyc_airbnb](https://wandb.ai/zanehan-udacity/nyc_airbnb)  
-- **W&B View-Only Report:** [https://wandb.ai/zanehan-udacity/nyc_airbnb/reports/NYC-Airbnb-ML-Pipeline-Project---VmlldzoxNDczMzMyNw?accessToken=buausdl0xfsbwtjo5yucyz80g38u4asntme1l7q7tpt4rqlwhzhl5qzopxt6e55c](https://wandb.ai/zanehan-udacity/nyc_airbnb/reports/NYC-Airbnb-ML-Pipeline-Project---VmlldzoxNDczMzMyNw?accessToken=buausdl0xfsbwtjo5yucyz80g38u4asntme1l7q7tpt4rqlwhzhl5qzopxt6e55c)  
+- **W&B View-Only Report:** [https://wandb.ai/zanehan-udacity/nyc_airbnb/reports/NYC-Airbnb-ML-Pipeline-Project---VmlldzoxNDczMzMyNw?accessToken=buausdl0xfsbwtjo5yucyz80g38u4asntme1l7q7tpt4rqlwhzhl5qzopxt6e55c](https://wandb.ai/zanehan-udacity/nyc_airbnb/reports/NYC-Airbnb-ML-Pipeline-Project---VmlldzoxNDczMzMyNw?accessToken=buausdl0xfsbwtjo5yucyz80g38u4asntme1l7q7tpt4rqlwhzhl5qzopxt6e55c)
 - **GitHub Repo:** [https://github.com/ZaneHan96/Project-Build-an-ML-Pipeline-Starter](https://github.com/ZaneHan96/Project-Build-an-ML-Pipeline-Starter)
 
 ---
