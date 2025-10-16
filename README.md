@@ -1,3 +1,31 @@
+# NYC Airbnb ML Pipeline
+
+**Links for review**
+
+- **W&B Project:** https://wandb.ai/zanehan-udacity/nyc_airbnb  
+- **W&B View-Only Report:** https://wandb.ai/zanehan-udacity/nyc_airbnb/reports/NYC-Airbnb-ML-Pipeline-Project---VmlldzoxNDczMzMyNw?accessToken=buausdl0xfsbwtjo5yucyz80g38u4asntme1l7q7tpt4rqlwhzhl5qzopxt6e55c  
+- **GitHub Repo:** https://github.com/ZaneHan96/Project-Build-an-ML-Pipeline-Starter
+
+**What’s included**
+
+- End-to-end pipeline: `download → basic_cleaning → data_check → data_split → train_random_forest` (+ evaluation)
+- Artifacts in W&B: `raw_data/sample.csv`, `clean_data/clean_sample.csv`, `trainval_data.csv`, `test_data.csv`,
+  and `model_export/random_forest_export`
+- Logged metrics: **R²** and **MAE** for training/evaluation (see W&B runs)
+
+**How to run locally**
+
+```bash
+conda activate nyc_airbnb_dev
+mlflow run . --env-manager=local -P steps=all
+```
+
+
+
+
+
+
+
 # Build an ML Pipeline for Short-Term Rental Prices in NYC
 You are working for a property management company renting rooms and properties for short periods of 
 time on various rental platforms. You need to estimate the typical price for a given property based 
